@@ -1,0 +1,13 @@
+
+# רץ לי בראש
+
+* [תקציר הספר](book-short.html)
+* [Synopsis](book-synopsys.html)
+
+![](book1.jpg)
+
+![](book2.jpg)
+
+![](book3.jpg)
+
+
