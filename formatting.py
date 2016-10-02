@@ -39,12 +39,15 @@ def do_menu(txt, title=None, fname=None):
    res.append("</div>")
    return "\n".join(res)
 
-def do_content(txt):
+def do_content(txt,dir='rtl'):
+   if txt.startswith("ltr"):
+       dir='ltr'
+       txt = txt[3:]
    txt = txt.replace("_S_","<b>").replace("_E_","</b>")
    html = markdown(txt)
-   return "<div dir=rtl class=content>%s</div>" % html
+   return "<div dir=%s class=content>%s</div>" % (dir,html)
 
-def do_page(html_menu, html_content, STYLE_FILE="style.css", title=""):
+def do_page(html_menu, html_content, STYLE_FILE="style.css", title="",dir="rtl"):
    return """
 <?xml version="1.0" encoding="UTF-8"?>
 <html>
@@ -55,7 +58,7 @@ def do_page(html_menu, html_content, STYLE_FILE="style.css", title=""):
 </style>
 <title>%s</title>
 </head>
-<body dir=rtl>
+<body dir=%s>
 <object width=100%%>  
 <param name="movie" value="topBanner3.swf">
 <embed src="topBanner3.swf" width=100%%>
@@ -65,5 +68,5 @@ def do_page(html_menu, html_content, STYLE_FILE="style.css", title=""):
 </body>
 </html>
    
-   """ % (STYLE_FILE, title, " ".join([html_menu, html_content]))
+   """ % (STYLE_FILE, title, dir, " ".join([html_menu, html_content]))
 
