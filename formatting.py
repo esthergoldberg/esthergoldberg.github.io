@@ -22,6 +22,7 @@ def do_menu(txt, title=None, fname=None):
    lines = txt.strip().split("\n")
    last_indent = 0
    for line in lines:
+      if line.strip() and line.strip()[0] == "#": continue
       indent = line.count("*")
       if indent > last_indent:
          while (last_indent != indent):
@@ -36,7 +37,10 @@ def do_menu(txt, title=None, fname=None):
          if link == fname:
             lstyle="citem"
          else: lstyle="item"
-         res.append("<li class=%s><a href=%s.html>%s</a></li>" % (lstyle,link,line))
+         if link.startswith("http") or "." in link: # don't add .html
+            res.append("<li class=%s><a href=%s>%s</a></li>" % (lstyle,link,line))
+         else:                                       # add .html
+            res.append("<li class=%s><a href=%s.html>%s</a></li>" % (lstyle,link,line))
       except ValueError:
          res.append("<li class=category>%s</li>" % line)
    res.append("</div>")
