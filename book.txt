@@ -4,6 +4,7 @@
 * [תקציר הספר](book-short.html)
 * [Synopsis](book-synopsys.html)
 * [פלייר](flyer.docx)
+* [המלצות](book-recs.html)
 * [עמוד הפייסבוק](https://www.facebook.com/profile.php?id=100013758632829&fref=ts)
 
 ניתן לרכוש את הספר ישירות מהמחברות (אסתר גולדברג בהרצליה וקרן זגורי בגבעתיים), בעלות של 70 ש״ח.
