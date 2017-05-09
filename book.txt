@@ -10,9 +10,13 @@
 ניתן לרכוש את הספר ישירות מהמחברות (אסתר גולדברג בהרצליה וקרן זגורי בגבעתיים), בעלות של 70 ש״ח.
 לתיאום ניתן להתקשר לאסתר גולדברג, 09-9561271 ולהשאיר שם ומספר טלפון.
 
-![](book1.jpg)
+[כריכה](cover_front.png) | [כריכה אחורית](cover_back.png) | [עמוד מהספר - הבדיחה](thejoke_page.png) 
 
-![](book-cover.jpg)
+![book_front.png](cover_front.small.png)
+
+![book_back.png](cover_back.small.png)
+
+![thejoke_page.png](thejoke_page.small.png)
 
 <!--![](book3.jpg)-->
 
