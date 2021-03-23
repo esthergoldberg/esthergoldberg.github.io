@@ -5,7 +5,7 @@ DOTS_MENU=False
 def do_menu(txt, title=None, fname=None):
    res = []
    if title:
-      print title
+      print(title)
       title_lines = title.strip().split("\n")
       res.append("<div class=topbar><a href=index.html id=mtitle1>%s</a><a href=index.html id=mtitle2>%s</a></div>" % (title_lines[0],title_lines[1]))
 

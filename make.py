@@ -16,7 +16,7 @@ menu_title        = codecs.open("menu.title","r","utf8").read()
 menu_file_content = codecs.open("menu.links","r","utf8").read()
 for fname in glob.glob("*.txt"):
    if fname in ['groups.txt']: continue
-   print fname
+   print(fname)
    fcontent = codecs.open(fname,"r","utf8").read()
    fname = fname.replace(".txt","")
 
