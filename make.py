@@ -21,9 +21,9 @@ for fname in glob.glob("*.txt"):
    fname = fname.replace(".txt","")
 
    menu_html = formatting.do_menu(menu_file_content,menu_title,fname)
-   content_html = formatting.do_content(fcontent)
+   content_html, meta_file = formatting.do_content(fcontent)
 
-   page = formatting.do_page(menu_html, content_html, "style.css", titles[fname])
+   page = formatting.do_page(menu_html, content_html, "style.css", titles[fname], meta_file=meta_file)
 
    fout = codecs.open(fname+".html","w","utf8")
    fout.write(page)

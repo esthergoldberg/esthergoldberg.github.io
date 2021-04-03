@@ -47,33 +47,46 @@ def do_menu(txt, title=None, fname=None):
    return "\n".join(res)
 
 def do_content(txt,dir='rtl'):
+   meta_file = None
+   lines = txt.split("\n")
+   print(lines[0])
+   if lines[0].startswith("meta:"):
+       print("HELLO")
+       meta_file = lines[0].split(":")[1].strip()
+       lines = lines[1:]
+   txt = "\n".join(lines)
    if txt.startswith("ltr"):
        dir='ltr'
        txt = txt[3:]
    txt = txt.replace("_S_","<b>").replace("_E_","</b>")
    html = markdown(txt)
-   return "<div dir=%s class=content>%s</div>" % (dir,html)
+   return f"<div dir={dir} class=content>{html}</div>", meta_file
 
-def do_page(html_menu, html_content, STYLE_FILE="style.css", title="",dir="rtl"):
-   return """
+def do_page(html_menu, html_content, STYLE_FILE="style.css", title="",dir="rtl", meta_file = None):
+    meta = ""
+    if meta_file is not None:
+        print("doing meta file")
+        meta = open(meta_file).read()
+    return f"""
 <?xml version="1.0" encoding="UTF-8"?>
 <html>
 <head>
 <META http-equiv="Content-Type" Content="text/html; charset=utf-8">
+{meta}
 
-<LINK REL=StyleSheet HREF="%s" TYPE="text/css" MEDIA=screen>
+<LINK REL=StyleSheet HREF="{STYLE_FILE}" TYPE="text/css" MEDIA=screen>
 </style>
-<title>%s</title>
+<title>{title}</title>
 </head>
-<body dir=%s>
+<body dir={dir}>
 <!--<object width=100%%>  
 <param name="movie" value="topBanner3.swf">
 <embed src="topBanner3.swf" width=100%%>
 </embed>
 </object>-->
-%s
+{" ".join([html_menu, html_content])}
 </body>
 </html>
-   
-   """ % (STYLE_FILE, title, dir, " ".join([html_menu, html_content]))
+
+   """
 
